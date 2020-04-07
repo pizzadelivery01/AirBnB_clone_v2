@@ -10,6 +10,7 @@ api.env.hosts = ['35.243.245.165', '54.243.21.33']
 api.env.user = 'ubuntu'
 api.env.key_filename = '~/.ssh/id_rsa'
 
+
 def do_deploy(archive_path):
     """
     transfer `archive_path` to web servers.
@@ -27,7 +28,8 @@ def do_deploy(archive_path):
             api.run('mkdir -p {}/'.format(output_path))
             api.run('tar -xzf {} -C {}/'.format(ppath[0], output_path))
             api.run('rm -f {}'.format(ppath[0]))
-            api.run('mv -u {}/web_static/* {}/'.format(output_path, output_path))
+            api.run('mv -u {}/web_static/* {}/'.format(
+                output_path, output_path))
             api.run('rm -rf {}/web_static'.format(output_path))
             api.run('rm -rf /data/web_static/current')
             api.run('ln -sf {}/ /data/web_static/current'.format(output_path))
