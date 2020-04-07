@@ -8,7 +8,7 @@ sudo echo "
 <!doctype html>
 <html>
 <head>
-<title>Hello Holberton Holbies</title>
+Holberton School
 </head>
 <body>
 </body>
