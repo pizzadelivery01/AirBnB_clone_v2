@@ -25,5 +25,5 @@ def teardown_db(exception):
     """
     storage.close()
 
-    if __name__ == '__main__':
-        app.run()
+if __name__ == '__main__':
+    app.run()
