@@ -39,7 +39,7 @@ def python_route(text="is cool"):
     return "Python {}".format(text.replace("_", " "))
 
 
-@app.route('/number/<int:n>')
+@app.route('/number/<int:n>', strict_slashes=False)
 def number_route(n):
     """
     number route
@@ -47,12 +47,13 @@ def number_route(n):
     return "{:d} is a number".format(n)
 
 
-@app.route('/number_template/<int:n>')
-def number_template(n):
+@app.route('/number_template/<int:n>', strict_slashes=False)
+def number_template(n=None):
     """
     number template
     """
-    return render_template('5-number.html', n=n)
+    if isinstance(n, int):
+        return render_template('5-number.html', n=n)
 
 
 if __name__ == "__main__":
