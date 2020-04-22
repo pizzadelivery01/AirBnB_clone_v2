@@ -10,12 +10,7 @@ def states_list():
     """
     states_list
     """
-    s_list = []
-    storage.reload()
-
-    for v in storage.all("State").values():
-        s_list.append([v.id, v.name])
-
+    s_list = storage.all("State").values()
     return render_template("7-states_list.html", states=s_list)
 
 
