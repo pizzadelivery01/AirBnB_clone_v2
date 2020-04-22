@@ -26,7 +26,7 @@ class State(BaseModel, Base):
 
         # copy values from dict to list
         for i in cities_dict.values():
-            if i.state.id == self.id:
+            if i.state_id == self.id:
                 cities_list.append(i)
 
         return cities_list
