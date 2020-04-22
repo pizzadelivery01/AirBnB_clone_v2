@@ -3,7 +3,7 @@
 from models.base_model import BaseModel, Base
 from sqlalchemy import Column, String, Float, Integer, ForeignKey, Table
 from sqlalchemy.orm import relationship
-from os import environ
+from os import getenv
 
 
 place_amenity = Table('place_amenity', Base.metadata,
@@ -44,7 +44,7 @@ class Place(BaseModel, Base):
     longitude = Column(Float, nullable=True)
     amenity_ids = []
 
-    if environ['HBNB_TYPE_STORAGE'] == 'db':
+    if getenv('HBNB_TYPE_STORAGE') == 'db':
         reviews = relationship('Review',
                                cascade='all, delete', backref='place')
         amenities = relationship('Amenity', backref='place_amenities',
