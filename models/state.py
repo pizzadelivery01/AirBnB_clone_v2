@@ -14,7 +14,6 @@ class State(BaseModel, Base):
     __tablename__ = 'states'
     name = Column(String(128), nullable=False)
 
-
     if environ['HBNB_TYPE_STORAGE'] == 'db':
         cities = relationship('City', cascade='all, delete', backref='state')
     else:
@@ -23,6 +22,8 @@ class State(BaseModel, Base):
             """Getter method for cities
             Return: list of cities with state_id equal to self.id
             """
+            from models import storage
+            from models.city import City
             # return list of City objs in __objects
             cities_dict = storage.all(City)
             cities_list = []
