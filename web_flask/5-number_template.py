@@ -2,7 +2,7 @@
 """
 flask init
 """
-from flask import Flask
+from flask import Flask, render_template
 app = Flask(__name__)
 
 
@@ -48,7 +48,7 @@ def number_route(n):
 
 
 @app.route('/number_template/<int:n>', strict_slashes=False)
-def number_template(n=None):
+def number_template(n):
     """
     number template
     """
