@@ -39,7 +39,7 @@ def python_route(text="is cool"):
     return "Python {}".format(text.replace("_", " "))
 
 
-@ap.route('/number/<int:n>')
+@app.route('/number/<int:n>')
 def number_route(n):
     """
     number route
