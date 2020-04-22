@@ -22,6 +22,7 @@ def states(id=None):
     state = states.get('State.' + id)
     return render_template('9-states.html', state=state)
 
+
 @app.teardown_appcontext
 def teardown_db(exception):
     """
