@@ -89,11 +89,10 @@ class DBStorage:
         # create db tables
         session = sessionmaker(bind=self.__engine,
                                expire_on_commit=False)
-        Session = scoped_session(session)
-        self.__session = Session()
+        self.__session = scoped_session(session)
 
     def close(self):
         """
         call remove method on session attribute
         """
-        self.__session.close()
+        self.__session.remove()
