@@ -18,6 +18,7 @@ def states_city(id=None):
     states = storage.all(State).values()
     return render_template('9-states.html', states=states, id=id)
 
+
 @app.teardown_appcontext
 def teardown_db(exception):
     """
