@@ -11,14 +11,12 @@ app = Flask(__name__)
 
 @app.route('/states', strict_slashes=False)
 @app.route('/states/<id>', strict_slashes=False)
-def states(id=None):
+def states_city(id=None):
     """
-    states
+    states_city
     """
-    states = storage.all(State)
-    if id is None:
-        return render_template('9-states.html', states=states, id=id)
-
+    states = storage.all(State).values()
+    return render_template('9-states.html', states=states, id=id)
 
 @app.teardown_appcontext
 def teardown_db(exception):
