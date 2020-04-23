@@ -25,7 +25,7 @@ def show_page():
     all_states = storage.all(State).values()
     all_amenities = storage.all(Amenity).values()
     return render_template('10-hbnb_filters.html', all_states=all_states,
-                           all_amenities=all_amenitiest)
+                           all_amenities=all_amenities)
 
 
 if __name__ == "__main__":
