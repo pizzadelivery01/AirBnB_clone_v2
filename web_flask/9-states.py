@@ -6,6 +6,9 @@ starts a Flask web application
 from flask import Flask, render_template
 from models import *
 from models import storage
+from models.state import State
+from models.city import City
+
 app = Flask(__name__)
 
 
@@ -34,6 +37,7 @@ def find_state(id):
         all_states.append(v)
         return render_template('9-states.html', all_states=all_states,
                                all_states_id=all_states_id, id=id)
+
 @app.teardown_appcontext
 def teardown_db(exception):
     """
