@@ -21,7 +21,7 @@ def list_all_states():
 
 
 @app.route('/states/<id>', strict_slashes=False)
-def find_state(id):
+def find_state(id=None):
     """
     state wit id
     """
