@@ -4,7 +4,6 @@ starts a Flask web application
 """
 
 from flask import Flask, render_template
-from models import *
 from models import storage
 from models.state import State
 from models.city import City
@@ -17,11 +16,8 @@ def list_all_states():
     """
     all states
     """
-    dict_states = storage.all(State)
-    all_states = []
-    for k, v in dict_states.items():
-        all_states.append(v)
-        return render_template('9-states.html', all_states=all_states)
+    all_states = storage.all(State).values()
+    return render_template('9-states.html', all_states=all_states)
 
 
 @app.route('/states/<id>', strict_slashes=False)
