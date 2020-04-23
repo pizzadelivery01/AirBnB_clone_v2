@@ -34,6 +34,7 @@ def find_state(id):
         return render_template('9-states.html', all_states=all_states,
                                all_states_id=all_states_id, id=id)
 
+
 @app.teardown_appcontext
 def teardown_db(exception):
     """
